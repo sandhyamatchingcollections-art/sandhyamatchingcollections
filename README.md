@@ -1,36 +1,29 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Sandhya Matching Collections — online store
 
-## Getting Started
+Next.js 15 (App Router) + TypeScript + Tailwind CSS v4. Supabase and Razorpay are wired in later phases.
 
-First, run the development server:
+## First time: connect the database
+Follow `docs/SETUP-SUPABASE.md` (paste one SQL file, set the sign-in URL, make yourself Super Admin).
 
+## Run locally
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+cp .env.example .env.local
+npm run dev        # http://localhost:3000  ·  admin preview at /admin
+npm run build      # production build (must pass with zero errors)
+npm run test:db    # 52 database checks (no internet needed)
+./tests/e2e/run-all.sh   # 85 browser checks against a local Postgres (see tests/e2e/README.md)
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Your logo
+Put your logo at `public/logo.png` (transparent PNG, ~400px tall works well) and restart the server.
+It appears in the header and footer automatically; until then the wordmark shows on its own.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Where things live
+- `src/app/globals.css` — pastel design tokens (all colours, fonts)
+- `src/server/catalog/` — every storefront data read. `dev-seed.ts` is development-only sample data.
+- `src/components/home/sections.tsx` — homepage sections, rendered from admin-style config
+- `src/components/store/` — header, mega menu, product card, footer, WhatsApp button, guest cart
+- `src/app/(store)/` — storefront routes · `src/app/(admin)/admin/` — admin shell
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Phase reports: `docs/PHASE-2.md`, `docs/PHASE-3.md`, `docs/PHASE-4.md`, `docs/PHASE-5.md`, `docs/PHASE-6.md`, `docs/PHASE-7.md`, `docs/PHASE-8.md`.
