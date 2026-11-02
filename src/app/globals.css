@@ -1,26 +1,72 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* Sandhya Matching Collections — design tokens (client palette:
+   baby pink, pista green, pastel green, sky blue).
+   Every colour in the app comes from these tokens; change them here only. */
+@theme {
+  --color-ivory: #fff8fb;        /* page background — very light pink */
+  --color-cream: #fffdf9;
+  --color-blush: #f9dce6;        /* baby pink */
+  --color-blush-deep: #f3c4d5;   /* deeper baby pink */
+  --color-peach: #e2f0c9;        /* pista green */
+  --color-lavender: #d6ecfa;     /* sky blue */
+  --color-sage: #d3eedb;         /* pastel green */
+  --color-sage-deep: #4f6347;
+  --color-champagne: #eadbc4;
+  --color-champagne-deep: #a87b2a; /* gold for stars: 3:1 on ivory */
+  --color-taupe: #6f6058;
+  --color-cocoa: #3e2c25;
+  --color-cocoa-soft: #5a443a;
+  --color-rose: #9c4a50;
+
+  /* Price boxes */
+  --color-sale-bg: #e3f5dd;      /* green box behind the selling price */
+  --color-sale: #1f6b2e;         /* green price text */
+  --color-mrp-bg: #fde6e6;       /* red box behind the original price */
+  --color-mrp: #b42318;          /* red original-price text */
+
+  --font-serif: "Cormorant Garamond", Georgia, serif;
+  --font-sans: "Inter Variable", system-ui, -apple-system, sans-serif;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-ivory);
+  color: var(--color-cocoa);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+.font-display {
+  font-family: var(--font-serif);
+  letter-spacing: -0.01em;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-cocoa);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Woven-thread texture for placeholder visuals until real photos are uploaded */
+.weave {
+  background-image:
+    repeating-linear-gradient(45deg, rgb(255 255 255 / 0.22) 0 2px, transparent 2px 11px),
+    repeating-linear-gradient(-45deg, rgb(62 44 37 / 0.05) 0 1px, transparent 1px 13px);
 }
