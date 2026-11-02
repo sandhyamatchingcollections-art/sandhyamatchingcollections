@@ -7,7 +7,7 @@ import { DesktopNav, MobileNav, HeaderActions } from "./HeaderClient";
 import { SearchBox } from "./SearchBox";
 
 // The owner drops their logo at public/logo.png; until then the wordmark shows alone.
-const hasLogo = fs.existsSync(path.join(process.cwd(), "public", "logo.png"));
+const hasLogo = true;
 
 export function Logo({ name, compact = false }: { name: string; compact?: boolean }) {
   const [first, ...rest] = name.split(" ");
